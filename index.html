@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proyecto Multimedia - Pagina Principal</title>
+  <link rel="stylesheet" href="statics/styles.css" />
+</head>
+<body class="page index-page">
+  <header class="hero">
+    <img src="statics/images/banner2.png" alt="Banner proyecto" class="hero-img" />
+    <div class="hero-content">
+      <h1 class="project-title">Proyecto Multimedia</h1>
+      <p class="project-desc">Pagina web para explorar mapas, videos, audios y varios estilos de menus.</p>
+
+      <div class="controls">
+        <div class="dropdown" id="dropdown-multimedia">
+          <button class="btn btn-primary dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Multimedia ▾
+          </button>
+          <ul class="dropdown-menu" aria-label="Multimedia">
+            <li><a href="templates/multimedia1.html">Multimedia 1 (Mapas)</a></li>
+            <li><a href="templates/multimedia2.html">Multimedia 2 (Videos)</a></li>
+            <li><a href="templates/multimedia3.html">Multimedia 3 (MP4 & Audio)</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown" id="dropdown-menus">
+          <button class="btn btn-secondary dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Menús ▾
+          </button>
+          <ul class="dropdown-menu" aria-label="Menús">
+            <li><a href="templates/menu1.html">Menu 1 (sidebar)</a></li>
+            <li><a href="templates/menu2.html">Menu 2 (hamburguesa)</a></li>
+            <li><a href="templates/menu3.html">Menu 3 (horizontal)</a></li>
+          </ul>
+        </div>
+
+        <a class="btn btn-home" href="index.html" title="Ir a inicio">Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="welcome-box">
+      <h2 id="greeting">¡Bienvenido/a!</h2>
+      <p class="name-display">Usuario: <span id="user-fullname">-- aun no registrado --</span></p>
+      <div class="actions">
+        <button id="btn-change-user" class="btn btn-outline">Cambiar nombre</button>
+        <button id="btn-clear" class="btn btn-danger">Borrar nombre</button>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card animated-card">
+        <img src="statics/images/iconmap.png" alt="Miniatura mapa" />
+        <h3>Mapas interactivos</h3>
+        <p>3 mapas.</p>
+        <a href="templates/multimedia1.html" class="btn btn-ghost">Ver mapas</a>
+      </article>
+
+      <article class="card animated-card">
+        <img src="statics/images/videoicon.png" alt="Miniatura videos" />
+        <h3>Videos</h3>
+        <p>3 videos de YouTube.</p>
+        <a href="templates/multimedia2.html" class="btn btn-ghost">Ver videos</a>
+      </article>
+
+      <article class="card animated-card">
+        <img src="statics/images/audioicon.png" alt="Miniatura audio" />
+        <h3>MP4 y Audio</h3>
+        <p>3 videos MP4 y 3 pistas de audio.</p>
+        <a href="templates/multimedia3.html" class="btn btn-ghost">Ver multimedia</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Proyecto Multimedia — Abraham Lezcano</p>
+  </footer>
+
+  <div class="modal" id="modal-user">
+    <div class="modal-content">
+      <h3>Bienvenido/a — Dinos tu nombre</h3>
+      <form id="user-form">
+        <div class="form-row">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" required autocomplete="given-name" />
+        </div>
+        <div class="form-row">
+          <label for="apellido">Apellido</label>
+          <input id="apellido" name="apellido" required autocomplete="family-name" />
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" id="modal-cancel" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script_bienvenida.js"></script>
+</body>
+</html>

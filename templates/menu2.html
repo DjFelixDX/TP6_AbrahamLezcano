@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menu 2 — Hamburguesa</title>
+  <link rel="stylesheet" href="../statics/styles.css" />
+</head>
+<body class="page menu-page menu2">
+  <nav class="topbar">
+    <button id="hamburgerBtn" class="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <a href="../index.html" class="btn btn-home">← Inicio</a>
+    <h1>Menu 2 — Menu Hamburguesa</h1>
+  </nav>
+
+  <div id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <strong>Menu</strong>
+      <button id="drawerClose" class="btn btn-outline" aria-label="Cerrar menu">Cerrar</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="multimedia1.html">Mapas</a>
+      <a href="multimedia2.html">YouTube</a>
+      <a href="multimedia3.html">MP4 & Audio</a>
+      <a href="menu1.html">Menu1 (Sidebar)</a>
+      <a href="menu3.html">Menu3 (Horizontal)</a>
+      <a href="../index.html">Volver al Inicio</a>
+    </nav>
+  </div>
+
+  <div id="drawerOverlay" class="drawer-overlay" hidden></div>
+
+  <main class="content">
+    <p>Menu hamburguesa: pulsa el icono en la esquina superior izquierda para abrir y cerrar el menu lateral.</p>
+    <img src="../statics/images/hamburguesa-ej.png" alt="Demo menu 2" style="max-width:560px;margin-top:1rem;border-radius:10px" />
+  </main>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('hamburgerBtn');
+      const drawer = document.getElementById('drawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+
+      function openDrawer(){
+        drawer.classList.add('open');
+        overlay.hidden = false;
+        btn.setAttribute('aria-expanded','true');
+        drawer.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer(){
+        drawer.classList.remove('open');
+        overlay.hidden = true;
+        btn.setAttribute('aria-expanded','false');
+        drawer.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        btn.focus();
+      }
+
+      btn.addEventListener('click', function(){
+        if(drawer.classList.contains('open')) closeDrawer(); else openDrawer();
+      });
+
+      overlay.addEventListener('click', closeDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
